@@ -1,256 +1,719 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Sidly | Digital, Marketing & Technology</title>
+<title>SIDLY | Digital Marketing & Technology</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<style>
 
-    html {
-      scroll-behavior: smooth;
-    }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #0a0a0a;
-      color: #ffffff;
-      line-height: 1.6;
-    }
+html{
+scroll-behavior:smooth;
+}
 
-    :root {
-      --black: #0a0a0a;
-      --dark: #111111;
-      --gold: #d4af37;
-      --white: #ffffff;
-      --gray: #b8b8b8;
-    }
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:#080808;
+color:white;
+line-height:1.6;
+}
 
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-      background: rgba(10, 10, 10, 0.95);
-      border-bottom: 1px solid rgba(212, 175, 55, 0.25);
-    }
+:root{
+--black:#080808;
+--dark:#111111;
+--gold:#d4af37;
+--light-gold:#f0d878;
+--gray:#aaa;
+}
 
-    nav {
-      max-width: 1200px;
-      margin: auto;
-      padding: 20px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+z-index:1000;
+background:rgba(8,8,8,.95);
+border-bottom:1px solid rgba(212,175,55,.3);
+}
 
-    .logo {
-      color: var(--gold);
-      font-size: 25px;
-      font-weight: bold;
-      letter-spacing: 3px;
-    }
+nav{
+max-width:1200px;
+margin:auto;
+padding:20px 30px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 25px;
-      font-size: 14px;
-    }
+.logo{
+color:var(--gold);
+font-size:25px;
+font-weight:bold;
+letter-spacing:4px;
+}
 
-    nav a:hover {
-      color: var(--gold);
-    }
+nav ul{
+list-style:none;
+display:flex;
+gap:25px;
+}
 
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 120px 25px 70px;
-      background:
-        radial-gradient(circle at center, #211c0b 0%, #0a0a0a 55%);
-    }
+nav a{
+color:white;
+text-decoration:none;
+font-size:14px;
+}
 
-    .hero-content {
-      max-width: 850px;
-    }
+nav a:hover{
+color:var(--gold);
+}
 
-    .hero-label {
-      color: var(--gold);
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      font-size: 13px;
-      margin-bottom: 20px;
-    }
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:140px 25px 80px;
+background:radial-gradient(circle,#292109 0%,#080808 60%);
+}
 
-    .hero h1 {
-      font-size: 64px;
-      line-height: 1.1;
-      margin-bottom: 20px;
-    }
+.hero-content{
+max-width:850px;
+}
 
-    .hero h1 span {
-      color: var(--gold);
-    }
+.hero-label{
+color:var(--gold);
+letter-spacing:5px;
+font-size:13px;
+margin-bottom:25px;
+}
 
-    .hero h2 {
-      font-size: 22px;
-      font-weight: normal;
-      color: var(--gray);
-      margin-bottom: 25px;
-    }
+.hero h1{
+font-size:70px;
+line-height:1.1;
+margin-bottom:20px;
+}
 
-    .hero p {
-      color: #cccccc;
-      max-width: 650px;
-      margin: auto;
-      font-size: 17px;
-    }
+.hero h1 span{
+color:var(--gold);
+}
 
-    .buttons {
-      margin-top: 35px;
-    }
+.hero h2{
+font-size:23px;
+font-weight:normal;
+color:#ccc;
+margin-bottom:25px;
+}
 
-    .btn {
-      display: inline-block;
-      padding: 13px 25px;
-      margin: 6px;
-      border-radius: 3px;
-      text-decoration: none;
-      font-weight: bold;
-    }
+.hero p{
+max-width:650px;
+margin:auto;
+color:var(--gray);
+font-size:17px;
+}
 
-    .btn-gold {
-      background: var(--gold);
-      color: #000;
-    }
+.buttons{
+margin-top:35px;
+}
 
-    .btn-outline {
-      border: 1px solid var(--gold);
-      color: var(--gold);
-    }
+.btn{
+display:inline-block;
+padding:14px 28px;
+margin:6px;
+text-decoration:none;
+font-weight:bold;
+border-radius:3px;
+transition:.3s;
+}
 
-    section {
-      padding: 100px 8%;
-    }
+.btn-gold{
+background:var(--gold);
+color:#000;
+}
 
-    .section-title {
-      text-align: center;
-      margin-bottom: 50px;
-    }
+.btn-outline{
+border:1px solid var(--gold);
+color:var(--gold);
+}
 
-    .section-title small {
-      color: var(--gold);
-      letter-spacing: 3px;
-      text-transform: uppercase;
-    }
+.btn:hover{
+transform:translateY(-3px);
+}
 
-    .section-title h2 {
-      font-size: 40px;
-      margin-top: 10px;
-    }
+section{
+padding:100px 8%;
+}
 
-    .section-title p {
-      color: var(--gray);
-      margin-top: 10px;
-    }
+.section-title{
+text-align:center;
+margin-bottom:55px;
+}
 
-    .about {
-      max-width: 850px;
-      margin: auto;
-      text-align: center;
-      color: #cccccc;
-      font-size: 18px;
-    }
+.section-title small{
+color:var(--gold);
+letter-spacing:4px;
+text-transform:uppercase;
+}
 
-    .cards {
-      max-width: 1100px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
+.section-title h2{
+font-size:42px;
+margin-top:10px;
+}
 
-    .card {
-      background: #111111;
-      border: 1px solid #292929;
-      padding: 30px;
-      transition: 0.3s;
-    }
+.section-title p{
+color:var(--gray);
+margin-top:10px;
+}
 
-    .card:hover {
-      transform: translateY(-8px);
-      border-color: var(--gold);
-    }
+.about{
+background:#0d0d0d;
+}
 
-    .card-number {
-      color: var(--gold);
-      font-size: 13px;
-      margin-bottom: 20px;
-    }
+.about-content{
+max-width:850px;
+margin:auto;
+text-align:center;
+}
 
-    .card h3 {
-      margin-bottom: 12px;
-    }
+.about-content p{
+color:#ccc;
+font-size:18px;
+margin-bottom:20px;
+}
 
-    .card p {
-      color: var(--gray);
-      font-size: 14px;
-    }
+.highlight{
+color:var(--gold);
+font-weight:bold;
+}
 
-    .contact {
-      text-align: center;
-      background: #111111;
-    }
+.cards{
+max-width:1150px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+}
 
-    footer {
-      text-align: center;
-      padding: 30px;
-      background: #050505;
-      color: #777777;
-      font-size: 13px;
-    }
+.card{
+background:#111;
+border:1px solid #292929;
+padding:32px 25px;
+transition:.3s;
+}
 
-    @media (max-width: 800px) {
-      .hero h1 {
-        font-size: 42px;
-      }
+.card:hover{
+transform:translateY(-8px);
+border-color:var(--gold);
+}
 
-      .cards {
-        grid-template-columns: 1fr 1fr;
-      }
+.card-number{
+color:var(--gold);
+font-size:13px;
+letter-spacing:2px;
+margin-bottom:20px;
+}
 
-      nav {
-        padding: 18px;
-      }
+.card h3{
+margin-bottom:15px;
+}
 
-      nav a {
-        margin-left: 8px;
-        font-size: 12px;
-      }
-    }
+.card p{
+color:var(--gray);
+font-size:14px;
+}
 
-    @media (max-width: 500px) {
-      .cards {
-        grid-template-columns: 1fr;
-      }
+.projects{
+background:#0d0d0d;
+}
 
-      .hero h1 {
-        font-size: 36px;
-      }
+.project-grid{
+max-width:1100px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:22px;
+}
 
-      .hero h2 {
-        font-size: 18px;
-      }
-    }
-  </style>
+.project{
+min-height:220px;
+padding:30px;
+background:#111;
+border:1px solid #292929;
+display:flex;
+flex-direction:column;
+justify-content:flex-end;
+transition:.3s;
+}
+
+.project:hover{
+border-color:var(--gold);
+transform:translateY(-6px);
+}
+
+.project span{
+color:var(--gold);
+font-size:12px;
+letter-spacing:2px;
+margin-bottom:10px;
+}
+
+.project h3{
+font-size:22px;
+margin-bottom:8px;
+}
+
+.project p{
+color:var(--gray);
+font-size:14px;
+}
+
+.skills-box{
+max-width:900px;
+margin:auto;
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:15px;
+}
+
+.skill{
+padding:12px 22px;
+border:1px solid #333;
+background:#111;
+color:#ddd;
+}
+
+.skill:hover{
+border-color:var(--gold);
+color:var(--gold);
+}
+
+.contact{
+text-align:center;
+background:radial-gradient(circle,#241d09,#111);
+}
+
+.contact-content{
+max-width:700px;
+margin:auto;
+}
+
+.contact-content p{
+color:#ccc;
+font-size:17px;
+margin-bottom:25px;
+}
+
+footer{
+text-align:center;
+padding:35px 20px;
+background:#050505;
+border-top:1px solid #222;
+color:#777;
+font-size:13px;
+}
+
+footer strong{
+color:var(--gold);
+}
+
+@media(max-width:900px){
+
+nav{
+padding:18px;
+}
+
+nav ul{
+gap:12px;
+}
+
+nav a{
+font-size:11px;
+}
+
+.hero h1{
+font-size:52px;
+}
+
+.cards{
+grid-template-columns:1fr 1fr;
+}
+
+.project-grid{
+grid-template-columns:1fr 1fr;
+}
+
+}
+
+@media(max-width:600px){
+
+nav{
+flex-direction:column;
+gap:12px;
+}
+
+nav ul{
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.hero{
+padding-top:170px;
+}
+
+.hero h1{
+font-size:42px;
+}
+
+.hero h2{
+font-size:18px;
+}
+
+.hero p{
+font-size:15px;
+}
+
+section{
+padding:75px 6%;
+}
+
+.section-title h2{
+font-size:32px;
+}
+
+.cards{
+grid-template-columns:1fr;
+}
+
+.project-grid{
+grid-template-columns:1fr;
+}
+
+.btn{
+width:90%;
+max-width:280px;
+}
+
+}
+
+</style>
 </head>
+
 <body>
+
+<header>
+
+<nav>
+
+<div class="logo">SIDLY</div>
+
+<ul>
+
+<li><a href="#accueil">Accueil</a></li>
+
+<li><a href="#apropos">À propos</a></li>
+
+<li><a href="#services">Services</a></li>
+
+<li><a href="#projets">Projets</a></li>
+
+<li><a href="#contact">Contact</a></li>
+
+</ul>
+
+</nav>
+
+</header>
+
+
+<section class="hero" id="accueil">
+
+<div class="hero-content">
+
+<div class="hero-label">
+DIGITAL • MARKETING • TECHNOLOGY
+</div>
+
+<h1>
+Welcome to <span>SIDLY</span>
+</h1>
+
+<h2>
+Transforming Ideas into Digital Solutions.
+</h2>
+
+<p>
+Je crée des solutions numériques modernes,
+professionnelles et adaptées aux besoins
+des particuliers et des entreprises.
+</p>
+
+<div class="buttons">
+
+<a href="#projets" class="btn btn-gold">
+Voir mes projets
+</a>
+
+<a href="#contact" class="btn btn-outline">
+Travaillons ensemble
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="about" id="apropos">
+
+<div class="section-title">
+
+<small>About Me</small>
+
+<h2>À propos de moi</h2>
+
+<p>Passionné par le digital et la technologie.</p>
+
+</div>
+
+<div class="about-content">
+
+<p>
+Je suis <span class="highlight">Sidly</span>,
+passionné par le numérique, l'informatique
+et le marketing digital.
+</p>
+
+<p>
+Je développe mes compétences afin de créer
+des solutions modernes et transformer les idées
+en projets concrets.
+</p>
+
+<p>
+Mon objectif est de continuer à apprendre,
+innover et construire une présence professionnelle
+dans le monde du digital et de la technologie.
+</p>
+
+</div>
+
+</section>
+
+
+<section id="services">
+
+<div class="section-title">
+
+<small>What I Do</small>
+
+<h2>Mes Services</h2>
+
+<p>Des solutions pensées pour le monde numérique.</p>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+
+<div class="card-number">01</div>
+
+<h3>Digital Marketing</h3>
+
+<p>
+Stratégie digitale, création de contenu,
+réseaux sociaux et visibilité en ligne.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-number">02</div>
+
+<h3>Office Solutions</h3>
+
+<p>
+Documents professionnels, Excel,
+Word et PowerPoint.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-number">03</div>
+
+<h3>Web Solutions</h3>
+
+<p>
+Création de sites web modernes,
+professionnels et adaptés au mobile.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-number">04</div>
+
+<h3>Digital Content</h3>
+
+<p>
+Création de contenus et d'idées
+pour les plateformes digitales.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="projects" id="projets">
+
+<div class="section-title">
+
+<small>My Work</small>
+
+<h2>Projets & Portfolio</h2>
+
+<p>Quelques domaines sur lesquels je travaille.</p>
+
+</div>
+
+<div class="project-grid">
+
+<div class="project">
+
+<span>PROJECT 01</span>
+
+<h3>Digital Marketing</h3>
+
+<p>
+Stratégies et contenus pour les plateformes digitales.
+</p>
+
+</div>
+
+
+<div class="project">
+
+<span>PROJECT 02</span>
+
+<h3>Web Design</h3>
+
+<p>
+Création d'expériences web modernes et professionnelles.
+</p>
+
+</div>
+
+
+<div class="project">
+
+<span>PROJECT 03</span>
+
+<h3>Office Technology</h3>
+
+<p>
+Solutions Word, Excel et PowerPoint.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section>
+
+<div class="section-title">
+
+<small>My Skills</small>
+
+<h2>Compétences</h2>
+
+<p>Des compétences que je continue de développer.</p>
+
+</div>
+
+<div class="skills-box">
+
+<div class="skill">Digital Marketing</div>
+
+<div class="skill">Social Media</div>
+
+<div class="skill">Microsoft Word</div>
+
+<div class="skill">Microsoft Excel</div>
+
+<div class="skill">PowerPoint</div>
+
+<div class="skill">Web Design</div>
+
+<div class="skill">HTML & CSS</div>
+
+<div class="skill">AI Content</div>
+
+</div>
+
+</section>
+
+
+<section class="contact" id="contact">
+
+<div class="section-title">
+
+<small>Get In Touch</small>
+
+<h2>Let's Work Together</h2>
+
+</div>
+
+<div class="contact-content">
+
+<p>
+Vous avez une idée, un projet ou besoin
+d'une solution digitale ?
+Contactez-moi et construisons quelque chose
+de professionnel ensemble.
+</p>
+
+<div class="buttons">
+
+<a href="#accueil" class="btn btn-gold">
+Retour en haut
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+© 2026 <strong>SIDLY</strong> — Digital • Marketing • Technology
+
+</footer>
+
+
+</body>
+</html>
