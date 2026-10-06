@@ -4,358 +4,254 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Sidly | Digital & Office Solutions</title>
+  <title>Sidly | Digital, Marketing & Technology</title>
 
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+
+    html {
       scroll-behavior: smooth;
     }
 
     body {
       font-family: Arial, sans-serif;
-      background: #f5f7fa;
-      color: #172033;
+      background: #0a0a0a;
+      color: #ffffff;
       line-height: 1.6;
     }
 
+    :root {
+      --black: #0a0a0a;
+      --dark: #111111;
+      --gold: #d4af37;
+      --white: #ffffff;
+      --gray: #b8b8b8;
+    }
+
     header {
-      background: #0b1220;
-      color: white;
-      padding: 20px 8%;
-      position: sticky;
+      position: fixed;
       top: 0;
+      width: 100%;
       z-index: 1000;
+      background: rgba(10, 10, 10, 0.95);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.25);
     }
 
     nav {
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px 30px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 20px;
     }
 
     .logo {
-      font-size: 24px;
+      color: var(--gold);
+      font-size: 25px;
       font-weight: bold;
+      letter-spacing: 3px;
     }
 
     nav a {
       color: white;
       text-decoration: none;
-      margin-left: 18px;
+      margin-left: 25px;
       font-size: 14px;
     }
 
     nav a:hover {
-      color: #4da3ff;
+      color: var(--gold);
     }
 
     .hero {
-      min-height: 90vh;
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 60px 20px;
-      background: linear-gradient(135deg, #0b1220, #16345c);
-      color: white;
+      padding: 120px 25px 70px;
+      background:
+        radial-gradient(circle at center, #211c0b 0%, #0a0a0a 55%);
     }
 
     .hero-content {
-      max-width: 800px;
+      max-width: 850px;
     }
 
-    .hero h1 {
-      font-size: 52px;
-      margin-bottom: 15px;
-    }
-
-    .hero h2 {
-      font-size: 25px;
-      font-weight: normal;
+    .hero-label {
+      color: var(--gold);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-size: 13px;
       margin-bottom: 20px;
     }
 
-    .hero p {
-      font-size: 18px;
-      color: #dce7f5;
-      margin-bottom: 30px;
+    .hero h1 {
+      font-size: 64px;
+      line-height: 1.1;
+      margin-bottom: 20px;
     }
 
-    .button {
+    .hero h1 span {
+      color: var(--gold);
+    }
+
+    .hero h2 {
+      font-size: 22px;
+      font-weight: normal;
+      color: var(--gray);
+      margin-bottom: 25px;
+    }
+
+    .hero p {
+      color: #cccccc;
+      max-width: 650px;
+      margin: auto;
+      font-size: 17px;
+    }
+
+    .buttons {
+      margin-top: 35px;
+    }
+
+    .btn {
       display: inline-block;
-      background: #ffffff;
-      color: #0b1220;
       padding: 13px 25px;
-      border-radius: 30px;
+      margin: 6px;
+      border-radius: 3px;
       text-decoration: none;
       font-weight: bold;
-      margin: 5px;
     }
 
-    .button:hover {
-      background: #dce7f5;
+    .btn-gold {
+      background: var(--gold);
+      color: #000;
+    }
+
+    .btn-outline {
+      border: 1px solid var(--gold);
+      color: var(--gold);
     }
 
     section {
-      padding: 80px 8%;
+      padding: 100px 8%;
     }
 
     .section-title {
       text-align: center;
-      margin-bottom: 45px;
+      margin-bottom: 50px;
+    }
+
+    .section-title small {
+      color: var(--gold);
+      letter-spacing: 3px;
+      text-transform: uppercase;
     }
 
     .section-title h2 {
-      font-size: 34px;
-      margin-bottom: 10px;
+      font-size: 40px;
+      margin-top: 10px;
     }
 
     .section-title p {
-      color: #667085;
+      color: var(--gray);
+      margin-top: 10px;
     }
 
     .about {
       max-width: 850px;
       margin: auto;
       text-align: center;
+      color: #cccccc;
       font-size: 18px;
     }
 
     .cards {
+      max-width: 1100px;
+      margin: auto;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 25px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
     }
 
     .card {
-      background: white;
+      background: #111111;
+      border: 1px solid #292929;
       padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: var(--gold);
+    }
+
+    .card-number {
+      color: var(--gold);
+      font-size: 13px;
+      margin-bottom: 20px;
     }
 
     .card h3 {
       margin-bottom: 12px;
-      font-size: 21px;
     }
 
     .card p {
-      color: #667085;
-    }
-
-    .skills {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-    }
-
-    .skill {
-      background: white;
-      padding: 12px 20px;
-      border-radius: 25px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.06);
-      font-weight: bold;
+      color: var(--gray);
+      font-size: 14px;
     }
 
     .contact {
       text-align: center;
-      background: #eaf0f7;
+      background: #111111;
     }
 
     footer {
-      background: #0b1220;
-      color: #b9c4d4;
       text-align: center;
-      padding: 25px;
+      padding: 30px;
+      background: #050505;
+      color: #777777;
+      font-size: 13px;
     }
 
-    @media (max-width: 700px) {
+    @media (max-width: 800px) {
+      .hero h1 {
+        font-size: 42px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr 1fr;
+      }
+
       nav {
-        flex-direction: column;
+        padding: 18px;
       }
 
       nav a {
-        margin: 5px;
+        margin-left: 8px;
+        font-size: 12px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .cards {
+        grid-template-columns: 1fr;
       }
 
       .hero h1 {
-        font-size: 38px;
+        font-size: 36px;
       }
 
       .hero h2 {
-        font-size: 21px;
-      }
-
-      section {
-        padding: 60px 6%;
+        font-size: 18px;
       }
     }
   </style>
 </head>
 
 <body>
-
-  <header>
-    <nav>
-      <div class="logo">SIDLY</div>
-
-      <div>
-        <a href="#accueil">Accueil</a>
-        <a href="#apropos">À propos</a>
-        <a href="#services">Services</a>
-        <a href="#projets">Projets</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </nav>
-  </header>
-
-  <section class="hero" id="accueil">
-    <div class="hero-content">
-      <h1>Bienvenue sur mon site</h1>
-
-      <h2>Digital & Office Solutions</h2>
-
-      <p>
-        Je suis Sidly, passionné par l'informatique,
-        le marketing digital et la création de solutions numériques.
-      </p>
-
-      <a href="#services" class="button">Découvrir mes services</a>
-      <a href="#contact" class="button">Me contacter</a>
-    </div>
-  </section>
-
-  <section id="apropos">
-    <div class="section-title">
-      <h2>À propos de moi</h2>
-      <p>Découvrez mon parcours et ma vision.</p>
-    </div>
-
-    <div class="about">
-      <p>
-        Je développe mes compétences dans le domaine de
-        l'informatique bureautique et du marketing digital.
-        Mon objectif est de créer des solutions numériques
-        modernes, utiles et professionnelles.
-      </p>
-    </div>
-  </section>
-
-  <section id="services">
-    <div class="section-title">
-      <h2>Mes services</h2>
-      <p>Des solutions adaptées aux besoins numériques.</p>
-    </div>
-
-    <div class="cards">
-
-      <div class="card">
-        <h3>💻 Informatique bureautique</h3>
-        <p>
-          Création et mise en forme de documents,
-          tableaux Excel et présentations PowerPoint.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>📱 Marketing digital</h3>
-        <p>
-          Création de contenu et développement
-          de stratégies pour les réseaux sociaux.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>🌐 Création web</h3>
-        <p>
-          Création de pages web modernes et adaptées
-          aux ordinateurs et aux téléphones.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>🚀 Solutions numériques</h3>
-        <p>
-          Accompagnement dans les projets numériques
-          et amélioration de la présence en ligne.
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-  <section id="projets">
-    <div class="section-title">
-      <h2>Mes projets</h2>
-      <p>Quelques domaines dans lesquels je développe mes compétences.</p>
-    </div>
-
-    <div class="cards">
-
-      <div class="card">
-        <h3>Site web personnel</h3>
-        <p>
-          Développement et amélioration de mon propre
-          espace professionnel en ligne.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Projets bureautiques</h3>
-        <p>
-          Travaux réalisés avec Word, Excel et PowerPoint.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Marketing & réseaux sociaux</h3>
-        <p>
-          Développement de contenus et stratégies
-          pour améliorer la visibilité en ligne.
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-  <section>
-    <div class="section-title">
-      <h2>Mes compétences</h2>
-      <p>Des compétences que je continue à développer.</p>
-    </div>
-
-    <div class="skills">
-      <span class="skill">Microsoft Word</span>
-      <span class="skill">Microsoft Excel</span>
-      <span class="skill">PowerPoint</span>
-      <span class="skill">HTML</span>
-      <span class="skill">CSS</span>
-      <span class="skill">Marketing digital</span>
-      <span class="skill">Création de contenu</span>
-      <span class="skill">Réseaux sociaux</span>
-    </div>
-  </section>
-
-  <section class="contact" id="contact">
-    <div class="section-title">
-      <h2>Contact</h2>
-      <p>Vous avez un projet ou une question ? Parlons-en.</p>
-    </div>
-
-    <a href="mailto:contact@example.com" class="button">
-      Envoyer un message
-    </a>
-  </section>
-
-  <footer>
-    <p>© 2026 Sidly — Digital & Office Solutions</p>
-    <p>Créé par Pierre Sidly</p>
-  </footer>
-
-</body>
-</html>
